@@ -22,6 +22,7 @@
 # In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 = 514579, so the correct answer is 514579.
 
 # Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?
+import numpy
 import itertools
 import math
 L = [
@@ -272,10 +273,9 @@ three_results()
 
 
 # generic nesting:
+import numpy
 def generic_adding_up_number(number, n, L):
     combinations = list(itertools.combinations(list(set(L)), n))
-    sums = filter(lambda x: sum(list(x)) != number, combinations)
-    print(list(sums))
+    sums = list(filter(lambda x: sum(list(x)) == number, combinations))
+    return list(map(lambda x: numpy.prod(list(x)), sums))
 
-
-generic_adding_up_number(2010, 5, L)
