@@ -243,7 +243,7 @@ def results():
         print(a * b)
 
 
-# results()
+results()
 # part 2:
 # The first half of this puzzle is complete! It provides one gold star: *
 
@@ -253,6 +253,8 @@ def results():
 # Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.
 
 # In your expense report, what is the product of the three entries that sum to 2020?
+
+
 def three_addup2020():
     possibilities = []
     for (a, b, c) in list(itertools.combinations(list(set(L)), 3)):
@@ -266,4 +268,14 @@ def three_results():
         print(a * b * c)
 
 
-print(three_results())
+three_results()
+
+
+# generic nesting:
+def generic_adding_up_number(number, n, L):
+    combinations = list(itertools.combinations(list(set(L)), n))
+    sums = filter(lambda x: sum(list(x)) != number, combinations)
+    print(list(sums))
+
+
+generic_adding_up_number(2010, 5, L)
