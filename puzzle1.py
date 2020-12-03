@@ -273,9 +273,12 @@ three_results()
 
 
 # generic nesting:
-import numpy
+
+
 def generic_adding_up_number(number, n, L):
     combinations = list(itertools.combinations(list(set(L)), n))
     sums = list(filter(lambda x: sum(list(x)) == number, combinations))
     return list(map(lambda x: numpy.prod(list(x)), sums))
+
+
 
