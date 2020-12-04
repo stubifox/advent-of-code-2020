@@ -1,12 +1,5 @@
-'''
-You start on the open square (.) in the top-left corner and need to reach the bottom (below the bottom-most row on your map).
+# --- Day 3: Toboggan Trajectory ---
 
-The toboggan can only follow a few specific slopes (you opted for a cheaper model that prefers rational numbers); start by counting all the trees you would encounter for the slope right 3, down 1:
-
-From your starting position at the top-left, check the position that is right 3 and down 1. Then, check the position that is right 3 and down 1 from there, and so on until you go past the bottom of the map.
-
-The locations you'd check in the above example are marked here with O where there was an open square and X where there was a tree:
-'''
 from requests import get
 from pprint import pprint
 cookie = {'session': '53616c7465645f5f7a1c0afee4d2e9fb72fcc3a32018d1c6a202919d538d6e88c75d8231785d0255862627b997e7744f'}
@@ -41,17 +34,9 @@ def check_tree_encounters(xs, ys):
 
 print(check_tree_encounters(3, 1))
 
+# --- Part Two ---
 
-'''
-Determine the number of trees you would encounter if, for each of the following slopes, you start at the top-left corner and traverse the map all the way to the bottom:
 
-Right 1, down 1.
-Right 3, down 1. (This is the slope you already checked.)
-Right 5, down 1.
-Right 7, down 1.
-Right 1, down 2.
-What do you get if you multiply together the number of trees encountered on each of the listed slopes?
-'''
 slopes = [{'xs': 1, 'ys': 1},
           {'xs': 3, 'ys': 1},
           {'xs': 5, 'ys': 1},
