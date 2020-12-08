@@ -1,6 +1,4 @@
-from pprint import pprint
 from requests import get
-from math import ceil
 
 
 def get_input() -> list[str]:
@@ -34,9 +32,15 @@ def get_highest_id() -> int:
 
 
 print(get_highest_id())
-pprint(get_encoded_tickets())
 
 # --- Part Two ---
 
 
-# def my_id():
+def get_missing_id() -> int:
+    all_seat_ids = list(map(lambda x: x['seat_id'], get_encoded_tickets()))
+    for x in range(get_highest_id()):
+        if x not in all_seat_ids and x + 1 in all_seat_ids and x - 1 in all_seat_ids:
+            return x
+
+
+print(get_missing_id())
