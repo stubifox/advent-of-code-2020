@@ -9,11 +9,11 @@ def get_input() -> list:
                cookies=cookie).content.decode('utf-8').split('\n\n')
 
 
-def convert_to_set(L):
+def convert_to_set(L) -> list(set):
     return list(map(lambda x: {c for c in x if c != '\n'}, L))
 
 
-def sum_of_sets(S=convert_to_set(get_input())):
+def sum_of_sets(S=convert_to_set(get_input())) -> int:
     if len(S) == 1:
         return len(S[0])
     return len(S[0]) + sum_of_sets(S[1:])
@@ -24,7 +24,7 @@ print(sum_of_sets())
 # --- Part Two ---
 
 
-def convert_to_set_p2():
+def convert_to_set_p2() -> list(set):
     return list(map(lambda l: intersection_of_sets_in_list(convert_to_set(l)), [x.strip().split('\n') for x in get_input()]))
 
 
